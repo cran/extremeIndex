@@ -1,0 +1,16 @@
+a4ce532694179bd8a61c4e5cce5ee730 *DESCRIPTION
+6ee46e08485b2227abca370acb4cefaa *NAMESPACE
+195d5f27151053267364a45ac646658a *R/choosethres.R
+37aa2c5872ccfd7dfac7b53dc638a8f5 *R/crps.R
+7e5fb31bec21f1503f482abf835d3108 *R/distributions.R
+da642a71a19e68405d52001a5ac9fc78 *R/gp.pw.fit.R
+dc6a0dce1aa04285c5fa7a2b899de56e *R/index.plot.R
+e734f72192f69ce601adc4733e2081e8 *R/indexclim.R
+d7e770b241063e6ea9216be573cafbfe *R/indexfore.R
+bcc84ae371ec9f3c320ce618d555455f *R/inference.R
+593df3e35de44f35d38990de7efb83be *data/crps.rda
+a9d1c80034afae632903656bac8dfb3b *man/choosethres.Rd
+0d21c317ddc7d07bb9c5a145d7317250 *man/crps.Rd
+3c69fd03ca9fee41f78482cca42e4893 *man/index.plot.Rd
+a849fcf8d690a0c9eacffb6dac9143e6 *man/indexclim.Rd
+da4ffefc68a9032adc46524f31df4964 *man/indexfore.Rd
