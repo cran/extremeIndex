@@ -7,7 +7,7 @@
 ###                   ###
 #########################
 
-.PWM <- function(orders,kappa=NA,sigma=NA,xi=NA,empiric=FALSE,Unif=NULL,NbSamples=10^4,N=200){
+.PWM <- function(orders,kappa=NA,sigma=NA,xi=NA,empiric=FALSE,Unif=NULL,NbSamples=10^3,N=200){
   H.L <- 0
   H.U <- 1
 
@@ -43,7 +43,7 @@
   }
 }
 
-.EGP.fitPWM <- function(x,kappa0=NA,sigma0=NA,xi0=NA,empiric=FALSE,Unif=NULL,NbSamples=10^4){
+.EGP.fitPWM <- function(x,kappa0=NA,sigma0=NA,xi0=NA,empiric=FALSE,Unif=NULL,NbSamples=10^3){
   Fn = ecdf(x)
 
   mu0hat = mean(x)
@@ -66,7 +66,7 @@
 }
 
 
-.EGP.fitPWM.boot <- function(data,i,kappa0=NA,sigma0=NA,xi0=NA,empiric=FALSE,Unif=NULL,NbSamples=10^4){
+.EGP.fitPWM.boot <- function(data,i,kappa0=NA,sigma0=NA,xi0=NA,empiric=FALSE,Unif=NULL,NbSamples=10^3){
   return( .EGP.fitPWM(data[i],kappa0=kappa0,sigma0=sigma0,xi0=xi0,empiric=empiric,Unif=Unif,NbSamples=NbSamples) )
 }
 

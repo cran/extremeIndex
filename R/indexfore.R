@@ -16,10 +16,14 @@ indexfore=function(score_fore,clim){
 
   testdata=function(yy){
 
-    exc=score_fore[which(score_fore>yy)]
- 
-    pa=c(clim$xi,evir::gpd(clim$obs,threshold=yy,method="pwm")$par.ests[2])
 
+ exc=score_fore[which(clim$obs>yy)]
+
+if (clim$estim_xi==TRUE){
+pa=evir::gpd(clim$obs,threshold=yy,method="pwm")$par.ests[c(1,2)]
+} else {
+    pa=c(clim$xi,evir::gpd(clim$obs,threshold=yy,method="pwm")$par.ests[2])
+}
 
     cv=goftest::cvm.test(exc,function (q,xi,mu,beta)
     { if (xi>0.01){(1 - (1 + (xi * (q - mu))/beta)^(-1/xi))}
@@ -29,7 +33,7 @@ indexfore=function(score_fore,clim){
 
   }
   cvm=sapply(clim$quantiles,function(q) testdata(q))
-  result=list(quantiles=clim$quantiles,index=1-cvm/clim$index,obs=clim$obs,clim=clim,score=score_fore)
+  result=list(quantiles=clim$quantiles,index=1-cvm/clim$index,obs=clim$obs,clim=clim,score=score_fore,estim_xi=clim$estim_xi)
   class(result)="indexfore"
   return(result)
 }

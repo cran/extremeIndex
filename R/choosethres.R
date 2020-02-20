@@ -27,7 +27,7 @@ thresh=sort(thresh)
     (1 - (1 + (xi * (q - mu))/beta)^(-1/xi))
   },xi=pe[1,3],mu=0,beta=pe[1,2])$p.value
   for (i in 2:length(thresh)){
-
+print(i)
     fi=suppressWarnings(.gp.pw.fit(data[data>thresh[i]]-thresh[i],init=c(1,guess),CI=T,R=R,ncpus=ncpus))
     pe[i,]=fi$fit$PWM
     se[i,,]=t(fi$CI$PWM)
@@ -39,7 +39,7 @@ thresh=sort(thresh)
 
   iopt=which((se[,1,1]<1)&(se[,1,2]>1))[1]
   if (is.na(iopt)) {
-    stop("A pareto approximation of data is not available here")
+    warning("A pareto approximation of data is not available here")
   }
 
 

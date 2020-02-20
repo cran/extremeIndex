@@ -1,6 +1,6 @@
 Package: extremeIndex
 Title: Forecast Verification for Extreme Events
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: person('Maxime','Taillardat',email='maxime.taillardat@meteo.fr',role=c('aut','cre'))
 Description: An index measuring the amount of information brought by forecasts for extreme events, subject to calibration, is computed. This index is originally designed for weather or climate forecasts, but it may be used in other forecasting contexts. This is the implementation of the index in Taillardat et al. (2019) <arXiv:1905.04022>.
 Depends: R (>= 3.2.3)
@@ -12,7 +12,7 @@ RoxygenNote: 6.1.0
 Suggests: knitr, rmarkdown
 Imports: goftest, boot, evd, gmm, evir
 NeedsCompilation: no
-Packaged: 2019-10-03 09:12:35 UTC; maxime
+Packaged: 2020-02-20 17:04:11 UTC; maxime
 Author: Maxime Taillardat [aut, cre]
 Repository: CRAN
-Date/Publication: 2019-10-07 11:00:02 UTC
+Date/Publication: 2020-02-20 17:20:03 UTC

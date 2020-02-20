@@ -5,7 +5,7 @@
 \title{Function which computes the index for the climatological CRPS/MAE. You must provide the observations. If you computes climatological CRPS/MAE previously, you can add the corresponding vector}
 \usage{
 indexclim(y, thresh = NULL, score_clim = NULL, xi = NULL,
-  score = "crps")
+  score = "crps", estim_xi = FALSE)
 }
 \arguments{
 \item{y}{The observations}
@@ -17,6 +17,8 @@ indexclim(y, thresh = NULL, score_clim = NULL, xi = NULL,
 \item{xi}{Shape parameter of the GP}
 
 \item{score}{A character string indicating if you want to work with CRPS ("crps") or MAE ("mae"), by default "crps"}
+
+\item{estim_xi}{If you want xi estimated for each threshold (for numerical reasons for instance)}
 }
 \value{
 An indexclim object containing xi, y, the score time serie, the score considered, the index values, and the corresponding quantiles of the observations
