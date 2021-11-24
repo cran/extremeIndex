@@ -4,8 +4,14 @@
 \alias{indexclim}
 \title{Function which computes the index for the climatological CRPS/MAE. You must provide the observations. If you computes climatological CRPS/MAE previously, you can add the corresponding vector}
 \usage{
-indexclim(y, thresh = NULL, score_clim = NULL, xi = NULL,
-  score = "crps", estim_xi = FALSE)
+indexclim(
+  y,
+  thresh = NULL,
+  score_clim = NULL,
+  xi = NULL,
+  score = "crps",
+  estim_xi = FALSE
+)
 }
 \arguments{
 \item{y}{The observations}
@@ -14,7 +20,7 @@ indexclim(y, thresh = NULL, score_clim = NULL, xi = NULL,
 
 \item{score_clim}{If not NULL, must be the time serie of the CRPS/MAE of the climatology. It is recommended to compute CRPS/MAE out of this function}
 
-\item{xi}{Shape parameter of the GP}
+\item{xi}{Shape parameter of the GP ( xi > 0)}
 
 \item{score}{A character string indicating if you want to work with CRPS ("crps") or MAE ("mae"), by default "crps"}
 

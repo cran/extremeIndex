@@ -4,8 +4,7 @@
 \alias{choosethres}
 \title{Function for heuristically choosing the domain where extreme value theory can be applied}
 \usage{
-choosethres(data, thresh, guess = c(1, 0.1), plots = 1:3, R = 200,
-  ncpus = 1)
+choosethres(data, thresh, guess = c(1, 0.1), plots = 1:3, R = 200, ncpus = 1)
 }
 \arguments{
 \item{data}{a numeric vector containing the observation used for verification}
@@ -24,7 +23,7 @@ choosethres(data, thresh, guess = c(1, 0.1), plots = 1:3, R = 200,
 three plots summarizing the stability of the parameters to threshold. The starting threshold admits kappa=1 and its confidence interval ;
 according Papastathopoulos & Tawn (2013)
 
-a list with thresholds used, GP parameters and CIs, p-values of Cramer von Mises test (accordance of thresholded data with GP), optimal threshold and xi.
+a list with thresholds used, GP parameters and CIs, optimal threshold and xi.
 }
 \description{
 Function for heuristically choosing the domain where extreme value theory can be applied

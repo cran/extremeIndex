@@ -4,19 +4,21 @@
 \alias{index.plot}
 \title{Function which plots the index for differents forecasts sharing the same observations}
 \usage{
-index.plot(forecasts, col = NULL, leg = NULL, ...)
+index.plot(forecasts, col = NULL, leg = NULL, xtypq = TRUE, ...)
 }
 \arguments{
-\item{forecasts}{list of "indexfore" objects, all forecasts must be computed on the same climatology}
+\item{forecasts}{list of "indexfore" objects, all forecasts must be computed on the same climatology and thresholds}
 
 \item{col}{colors of the differents forecasts for the plot}
 
 \item{leg}{legend of the plot}
 
+\item{xtypq}{the x-axis of the plot is quantiles values or orders (TRUE for quantiles)}
+
 \item{...}{other arguments for the plot}
 }
 \value{
-a plot of the indices and a matrix containing the indexes for each threshold
+a plot of the indices and a matrix containing the indexes for each threshold/order
 }
 \description{
 Function which plots the index for differents forecasts sharing the same observations

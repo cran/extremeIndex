@@ -12,7 +12,7 @@ indexfore(score_fore, clim)
 \item{clim}{an indexclim object coming from indexclim}
 }
 \value{
-an indexfore object with the index computed vs. climatological forecast
+an indexfore object with the index computed vs. climatological forecast and the statistic omega2
 }
 \description{
 Function for computing the index for a forecast system vs. climatological forecast. You must provide an indexclim object.

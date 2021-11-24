@@ -8,35 +8,25 @@
 #' @param ncpus if you want to make bootstrap on several cores
 #' @return three plots summarizing the stability of the parameters to threshold. The starting threshold admits kappa=1 and its confidence interval ;
 #' according Papastathopoulos & Tawn (2013)
-#' @return a list with thresholds used, GP parameters and CIs, p-values of Cramer von Mises test (accordance of thresholded data with GP), optimal threshold and xi.
+#' @return a list with thresholds used, GP parameters and CIs, optimal threshold and xi.
 #' @export
 #'
-#' @import goftest
 #' @importFrom graphics abline arrows legend lines par plot points polygon title
 choosethres=function(data,thresh,guess=c(1,0.1),plots=1:3,R=200,ncpus=1){
 thresh=sort(thresh)
   pe=matrix(0,ncol=3,nrow=length(thresh))
   se=array(0,dim=c(length(thresh),3,2))
-  cv=rep(0,length(thresh))
   fi=suppressWarnings(.gp.pw.fit(data[data>thresh[1]]-thresh[1],init=c(1,guess),CI=T,R=R,ncpus=ncpus))
 
   pe[1,]=fi$fit$PWM
   se[1,,]=t(fi$CI$PWM)
-  cv[1]=goftest::cvm.test(data[data>thresh[1]]-thresh[1],function (q,xi,mu,beta)
-  {
-    (1 - (1 + (xi * (q - mu))/beta)^(-1/xi))
-  },xi=pe[1,3],mu=0,beta=pe[1,2])$p.value
+
   for (i in 2:length(thresh)){
 print(i)
     fi=suppressWarnings(.gp.pw.fit(data[data>thresh[i]]-thresh[i],init=c(1,guess),CI=T,R=R,ncpus=ncpus))
     pe[i,]=fi$fit$PWM
     se[i,,]=t(fi$CI$PWM)
-    cv[i]=goftest::cvm.test(data[data>thresh[i]]-thresh[i],function (q,xi,mu,beta)
-    {
-      (1 - (1 + (xi * (q - mu))/beta)^(-1/xi))
-    },xi=pe[i,3],mu=0,beta=pe[i,2])$p.value
-  }
-
+}
   iopt=which((se[,1,1]<1)&(se[,1,2]>1))[1]
   if (is.na(iopt)) {
     warning("A pareto approximation of data is not available here")
@@ -74,5 +64,5 @@ print(i)
     }
 
   }
-  return(invisible(list(par = pe, CI = se, thresh = thresh, cvm=cv, opt=c(thresh[iopt],pe[iopt,3]))))
+  return(invisible(list(par = pe, CI = se, thresh = thresh, opt=c(thresh[iopt],pe[iopt,3]))))
 }
